@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "id": "gallium_arsenide",
+  "name": "Gallium arsenide",
+  "formula": "GaAs",
+  "aliases": [
+    "GaAs"
+  ],
+  "category": "III-V compound semiconductor",
+  "structure": {
+    "prototype": "zinc-blende",
+    "space_group": {
+      "number": 216,
+      "symbol": "F-43m"
+    },
+    "lattice": {
+      "a": 5.65325,
+      "unit": "A",
+      "system": "cubic",
+      "temperature_K": 300,
+      "source": "J. S. Blakemore, J. Appl. Phys. 53 (1982) R123"
+    },
+    "basis": [
+      {
+        "element": "Ga",
+        "fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "label": "Ga",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "As",
+        "fractional": [
+          0.25,
+          0.25,
+          0.25
+        ],
+        "label": "As",
+        "wyckoff": "4c"
+      },
+      {
+        "element": "Ga",
+        "fractional": [
+          0.0,
+          0.5,
+          0.5
+        ],
+        "label": "Ga",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "As",
+        "fractional": [
+          0.25,
+          0.75,
+          0.75
+        ],
+        "label": "As",
+        "wyckoff": "4c"
+      },
+      {
+        "element": "Ga",
+        "fractional": [
+          0.5,
+          0.0,
+          0.5
+        ],
+        "label": "Ga",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "As",
+        "fractional": [
+          0.75,
+          0.25,
+          0.75
+        ],
+        "label": "As",
+        "wyckoff": "4c"
+      },
+      {
+        "element": "Ga",
+        "fractional": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "label": "Ga",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "As",
+        "fractional": [
+          0.75,
+          0.75,
+          0.25
+        ],
+        "label": "As",
+        "wyckoff": "4c"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "Ga-terminated-111A",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "(111)A, gallium-terminated polar face.",
+      "implemented": true
+    },
+    {
+      "id": "As-terminated-111B",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "(111)B, arsenic-terminated polar face. Select by shifting the slab origin by half a bilayer.",
+      "implemented": true
+    },
+    {
+      "id": "cleaved-110",
+      "orientation": [
+        1,
+        1,
+        0
+      ],
+      "description": "Non-polar (110) cleavage plane with equal Ga and As surface density. The standard STM surface for GaAs.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "relaxed-110",
+      "orientation": [
+        1,
+        1,
+        0
+      ],
+      "description": "Bond-rotation relaxation of GaAs(110): As moves outward, Ga inward, ~27 deg buckling.",
+      "implemented": false,
+      "reference": "A. Kahn, Surf. Sci. Rep. 3 (1983) 193",
+      "note": "Not implemented. This is a surface relaxation rather than a change of periodicity, and it would come from relaxing the slab; but no interatomic potential shipped with Materia covers GaAs, so the recommended relaxation model for this material is 'unsupported'. The (110) surface is built as the ideal cleavage truncation and labelled as such. A Tier-3 adapter is needed for the buckling."
+    },
+    {
+      "id": "2x4-beta2",
+      "orientation": [
+        1,
+        0,
+        0
+      ],
+      "description": "As-rich beta2(2x4) reconstruction of GaAs(100).",
+      "implemented": false,
+      "reference": "V. P. LaBella et al., Phys. Rev. Lett. 83 (1999) 2989",
+      "note": "Not implemented in v0.1."
+    }
+  ],
+  "properties": {
+    "density": {
+      "value": 5.3176,
+      "unit": "g/cm^3",
+      "conditions": "300 K",
+      "source": "J. S. Blakemore, J. Appl. Phys. 53 (1982) R123"
+    },
+    "band_gap": {
+      "value": 1.424,
+      "unit": "eV",
+      "conditions": "300 K, direct at Gamma",
+      "source": "J. S. Blakemore, J. Appl. Phys. 53 (1982) R123"
+    },
+    "band_gap_type": {
+      "value": "direct",
+      "unit": "",
+      "source": "classification following the band-gap reference cited for this material"
+    },
+    "dielectric_constant": {
+      "value": 12.9,
+      "unit": "",
+      "conditions": "static",
+      "source": "J. S. Blakemore"
+    },
+    "electron_affinity": {
+      "value": 4.07,
+      "unit": "eV",
+      "source": "S. M. Sze"
+    },
+    "melting_point": {
+      "value": 1511,
+      "unit": "K",
+      "source": "CRC Handbook"
+    },
+    "thermal_conductivity": {
+      "value": 55,
+      "unit": "W/(m K)",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "elastic_C11": {
+      "value": 118.8,
+      "unit": "GPa",
+      "source": "R. I. Cottam and G. A. Saunders, J. Phys. C 6 (1973) 2105"
+    },
+    "elastic_C12": {
+      "value": 53.8,
+      "unit": "GPa",
+      "source": "R. I. Cottam and G. A. Saunders, J. Phys. C 6 (1973) 2105"
+    },
+    "elastic_C44": {
+      "value": 59.4,
+      "unit": "GPa",
+      "source": "R. I. Cottam and G. A. Saunders, J. Phys. C 6 (1973) 2105"
+    },
+    "nearest_neighbour_distance": {
+      "value": 2.4481,
+      "unit": "A",
+      "conditions": "derived a*sqrt(3)/4",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    }
+  },
+  "recommended_models": {
+    "relax": "tersoff-like-unsupported",
+    "electronic": "tight-binding-sp3s",
+    "stm": "tersoff-hamann",
+    "high-fidelity": "external:quantum-espresso"
+  },
+  "references": [
+    "J. S. Blakemore, J. Appl. Phys. 53 (1982) R123",
+    "P. Vogl, H. P. Hjalmarson and J. D. Dow, J. Phys. Chem. Solids 44 (1983) 365"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Compiled by the Materia project from the cited primary sources."
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-density="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materia</title>
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============================ MENU BAR ============================ -->
+  <div id="menubar" role="menubar" aria-label="Main menu">
+    <span class="app-mark" title="Materia">Materia</span>
+    <button class="menu-root" data-menu="File" aria-haspopup="true" aria-expanded="false">File</button>
+    <button class="menu-root" data-menu="Structure" aria-haspopup="true" aria-expanded="false">Structure</button>
+    <button class="menu-root" data-menu="Build" aria-haspopup="true" aria-expanded="false">Build</button>
+    <button class="menu-root" data-menu="Instrument" aria-haspopup="true" aria-expanded="false">Instrument</button>
+    <button class="menu-root" data-menu="Solve" aria-haspopup="true" aria-expanded="false">Solve</button>
+    <button class="menu-root" data-menu="Display" aria-haspopup="true" aria-expanded="false">Display</button>
+    <button class="menu-root" data-menu="Tools" aria-haspopup="true" aria-expanded="false">Tools</button>
+    <button class="menu-root" data-menu="Help" aria-haspopup="true" aria-expanded="false">Help</button>
+    <span class="menubar-spacer"></span>
+    <span id="project-name" class="readout" title="Active project">Untitled project</span>
+  </div>
+  <div id="menu-popup" class="menu-popup" hidden></div>
+
+  <!-- ============================ TOOLBAR ============================= -->
+  <div id="toolbar" role="toolbar" aria-label="Instrument toolbar">
+    <div class="tool-group" role="group" aria-label="Pointer tools">
+      <button class="tool" data-tool="navigate" title="Navigate (V)" aria-pressed="true">
+        <span class="ico ico-nav"></span>Navigate</button>
+      <button class="tool" data-tool="select" title="Select atom (S)" aria-pressed="false">
+        <span class="ico ico-sel"></span>Select</button>
+      <button class="tool" data-tool="box" title="Box select (B)" aria-pressed="false">
+        <span class="ico ico-box"></span>Box</button>
+      <button class="tool" data-tool="lasso" title="Lasso select (L)" aria-pressed="false">
+        <span class="ico ico-lasso"></span>Lasso</button>
+      <button class="tool" data-tool="measure" title="Measure distance / angle (M)" aria-pressed="false">
+        <span class="ico ico-meas"></span>Measure</button>
+      <button class="tool" data-tool="tip" title="Position probe tip (T)" aria-pressed="false">
+        <span class="ico ico-tip"></span>Tip</button>
+      <button class="tool" data-tool="manipulate" title="Move atom (G)" aria-pressed="false">
+        <span class="ico ico-move"></span>Move</button>
+    </div>
+
+    <div class="tool-sep"></div>
+
+    <div class="tool-group" role="group" aria-label="Scale">
+      <label class="tool-label" for="scale-slider">Scale</label>
+      <input type="range" id="scale-slider" min="0" max="4" step="1" value="0"
+             aria-label="Observation scale" list="scale-ticks">
+      <datalist id="scale-ticks">
+        <option value="0" label="wafer"></option><option value="1"></option>
+        <option value="2"></option><option value="3"></option><option value="4"></option>
+      </datalist>
+      <span id="scale-readout" class="readout mono" aria-live="polite">wafer &middot; 300 mm</span>
+    </div>
+
+    <div class="tool-sep"></div>
+
+    <div class="tool-group" role="group" aria-label="Instrument">
+      <label class="tool-label" for="tb-technique">Probe</label>
+      <select id="tb-technique" aria-label="Probe technique">
+        <option value="stm">STM</option>
+        <option value="afm">AFM</option>
+      </select>
+      <label class="tool-label" for="tb-bias">Bias</label>
+      <input type="number" id="tb-bias" class="mono num" value="1.00" step="0.05" min="-4" max="4"
+             aria-label="Bias voltage in volts"><span class="unit">V</span>
+      <label class="tool-label" for="tb-current">I<sub>set</sub></label>
+      <input type="number" id="tb-current" class="mono num" value="0.50" step="0.05" min="0.001"
+             aria-label="Tunnelling current setpoint in nanoamps"><span class="unit">nA</span>
+      <button class="tool primary" id="btn-scan" title="Acquire scan (F5)">
+        <span class="ico ico-scan"></span>Scan</button>
+      <button class="tool" id="btn-abort" title="Abort the running job" disabled>Abort</button>
+    </div>
+
+    <span class="toolbar-spacer"></span>
+    <div class="tool-group" role="group" aria-label="Indicators">
+      <span class="lamp" id="lamp-feedback" title="Feedback loop">FB</span>
+      <span class="lamp" id="lamp-solver" title="Solver activity">SOLV</span>
+      <span class="lamp" id="lamp-warn" title="Warnings">WARN</span>
+    </div>
+  </div>
+
+  <!-- ============================ MAIN AREA =========================== -->
+  <div id="main">
+
+    <!-- ---------------------------- LEFT ---------------------------- -->
+    <aside id="left-dock" class="dock">
+      <div class="dock-tabs" role="tablist" aria-label="Left panels">
+        <button class="dock-tab active" data-panel="tree" role="tab" aria-selected="true">Project</button>
+        <button class="dock-tab" data-panel="materials" role="tab" aria-selected="false">Materials</button>
+        <button class="dock-tab" data-panel="examples" role="tab" aria-selected="false">Examples</button>
+        <button class="dock-tab" data-panel="selection" role="tab" aria-selected="false">Selection</button>
+      </div>
+      <div class="dock-body">
+        <section class="panel" id="panel-tree" role="tabpanel">
+          <div class="panel-head">Project tree</div>
+          <div class="tree" id="project-tree" role="tree" aria-label="Project tree"></div>
+        </section>
+
+        <section class="panel" id="panel-materials" role="tabpanel" hidden>
+          <div class="panel-head">Material library</div>
+          <div class="field-row">
+            <input type="search" id="material-search" placeholder="filter&hellip;"
+                   aria-label="Filter materials">
+          </div>
+          <div class="list" id="material-list" role="listbox" aria-label="Materials"></div>
+          <div class="panel-head">Definition</div>
+          <div id="material-detail" class="detail-scroll"></div>
+        </section>
+
+        <section class="panel" id="panel-examples" role="tabpanel" hidden>
+          <div class="panel-head">
+            <span>Example laboratory</span>
+            <span class="mono" id="example-coverage"></span>
+          </div>
+          <div class="field-row example-filters">
+            <input type="search" id="example-search" placeholder="find an example..."
+                   aria-label="Find an example">
+            <select id="example-category" aria-label="Filter example category">
+              <option value="">All areas</option>
+            </select>
+          </div>
+          <div class="list example-list" id="example-list" role="listbox"
+               aria-label="Runnable examples"></div>
+          <div class="detail-scroll example-detail" id="example-detail"></div>
+        </section>
+
+        <section class="panel" id="panel-selection" role="tabpanel" hidden>
+          <div class="panel-head">Selection</div>
+          <div class="field-grid" id="selection-tools"></div>
+          <div class="panel-head">Selected atoms</div>
+          <div class="table-wrap"><table class="grid" id="selection-table">
+            <thead><tr><th>id</th><th>el</th><th>x&nbsp;/&nbsp;&#8491;</th>
+            <th>y&nbsp;/&nbsp;&#8491;</th><th>z&nbsp;/&nbsp;&#8491;</th><th>role</th></tr></thead>
+            <tbody></tbody></table></div>
+        </section>
+      </div>
+    </aside>
+
+    <div class="splitter vertical" data-target="left-dock" role="separator"
+         aria-orientation="vertical" tabindex="0" aria-label="Resize left panel"></div>
+
+    <!-- --------------------------- CENTER --------------------------- -->
+    <section id="center">
+      <div class="view-tabs" role="tablist" aria-label="Viewport">
+        <button class="view-tab active" data-view="wafer" role="tab" aria-selected="true">Wafer</button>
+        <button class="view-tab" data-view="region" role="tab" aria-selected="false">Microstructure</button>
+        <button class="view-tab" data-view="atoms" role="tab" aria-selected="false">Atomic model</button>
+        <button class="view-tab" data-view="probe" role="tab" aria-selected="false">Probe image</button>
+        <span class="view-tabs-spacer"></span>
+        <span class="readout mono" id="view-hint"></span>
+      </div>
+
+      <nav class="workflow-bar" id="workflow-bar" aria-label="Scientific workflow">
+        <span class="workflow-label">Workflow</span>
+        <button class="workflow-action" type="button" data-workflow="build">Build</button>
+        <button class="workflow-action" type="button" data-workflow="simulate">Simulate</button>
+        <button class="workflow-action" type="button" data-workflow="collide">Collide</button>
+        <button class="workflow-action" type="button" data-workflow="quantum">Quantum</button>
+        <button class="workflow-action" type="button" data-workflow="microscopy">Microscopy</button>
+        <button class="workflow-action" type="button" data-workflow="measure">Measure</button>
+        <button class="workflow-action" type="button" data-workflow="results">Results</button>
+        <button class="workflow-action" type="button" data-workflow="export">Export</button>
+      </nav>
+
+      <div id="viewstack">
+        <div class="view" id="view-wafer">
+          <canvas id="canvas-wafer" tabindex="0" aria-label="Wafer map"></canvas>
+          <div class="overlay top-left" id="wafer-overlay"></div>
+          <div class="overlay bottom-left scalebar" id="wafer-scale"></div>
+        </div>
+
+        <div class="view" id="view-region" hidden>
+          <canvas id="canvas-region" tabindex="0" aria-label="Microstructure map"></canvas>
+          <div class="overlay top-left" id="region-overlay"></div>
+          <canvas class="callout-layer" id="canvas-region-callout"
+                  aria-label="Position of the field of view on the wafer"></canvas>
+          <div class="overlay bottom-left scalebar" id="region-scale"></div>
+        </div>
+
+        <div class="view" id="view-atoms" hidden>
+          <canvas id="canvas-atoms" tabindex="0" aria-label="Atomic model"></canvas>
+          <div class="overlay top-left" id="atoms-overlay"></div>
+          <canvas class="callout-layer" id="canvas-atoms-callout"
+                  aria-label="Position of the region on the wafer"></canvas>
+          <div class="overlay top-right" id="atoms-legend"></div>
+          <div class="overlay bottom-left scalebar" id="atoms-scale"></div>
+          <div class="trajectory-stage" id="trajectory-stage" hidden>
+            <div class="trajectory-stage-head">
+              <span>Collision timeline</span>
+              <span class="mono" id="trajectory-stage-time">frame 1</span>
+            </div>
+            <div class="trajectory-stage-controls">
+              <button class="tool sm" id="trajectory-stage-first" type="button"
+                      aria-label="First trajectory frame">First</button>
+              <button class="tool sm" id="trajectory-stage-back" type="button"
+                      aria-label="Previous trajectory frame">Back</button>
+              <button class="tool sm primary" id="trajectory-stage-play" type="button">Play</button>
+              <button class="tool sm" id="trajectory-stage-forward" type="button"
+                      aria-label="Next trajectory frame">Forward</button>
+              <button class="tool sm" id="trajectory-stage-last" type="button"
+                      aria-label="Last trajectory frame">Last</button>
+              <input id="trajectory-stage-range" type="range" min="0" max="0" step="1"
+                     value="0" aria-label="Collision timeline frame">
+              <select id="trajectory-stage-speed" aria-label="Collision playback speed">
+                <option value="0.25">0.25x</option>
+                <option value="0.5">0.5x</option>
+                <option value="1" selected>1x</option>
+                <option value="2">2x</option>
+                <option value="4">4x</option>
+              </select>
+              <button class="tool sm" id="trajectory-stage-close" type="button"
+                      aria-label="Close collision timeline">Close</button>
+            </div>
+            <div class="trajectory-stage-readout" id="trajectory-stage-readout">
+              Run a collision example to inspect every saved frame.
+            </div>
+          </div>
+        </div>
+
+        <div class="view" id="view-probe" hidden>
+          <canvas id="canvas-probe" tabindex="0" aria-label="Scanning probe image"></canvas>
+          <div class="overlay top-left" id="probe-overlay"></div>
+          <div class="overlay top-right" id="probe-controls"></div>
+          <div class="overlay bottom-left scalebar" id="probe-scale"></div>
+          <div class="overlay bottom-right" id="probe-colorbar"></div>
+          <div id="hover-card" class="hover-card" hidden></div>
+        </div>
+      </div>
+
+      <div class="splitter horizontal" data-target="secondary" role="separator"
+           aria-orientation="horizontal" tabindex="0" aria-label="Resize plot pane"></div>
+      <div id="secondary">
+        <div class="view-tabs small" role="tablist" aria-label="Plots">
+          <button class="view-tab active" data-plot="profile" role="tab" aria-selected="true">Line profile</button>
+          <button class="view-tab" data-plot="dos" role="tab" aria-selected="false">DOS</button>
+          <button class="view-tab" data-plot="ldos" role="tab" aria-selected="false">Atom LDOS</button>
+          <button class="view-tab" data-plot="bands" role="tab" aria-selected="false">Band structure</button>
+          <button class="view-tab" data-plot="sts" role="tab" aria-selected="false">dI/dV</button>
+          <button class="view-tab" data-plot="force" role="tab" aria-selected="false">Force curve</button>
+          <button class="view-tab" data-plot="relax" role="tab" aria-selected="false">Relaxation</button>
+          <span class="view-tabs-spacer"></span>
+          <span class="readout mono" id="plot-note"></span>
+        </div>
+        <canvas id="canvas-plot" aria-label="Plot"></canvas>
+      </div>
+    </section>
+
+    <div class="splitter vertical" data-target="right-dock" role="separator"
+         aria-orientation="vertical" tabindex="0" aria-label="Resize right panel"></div>
+
+    <!-- ---------------------------- RIGHT --------------------------- -->
+    <aside id="right-dock" class="dock">
+      <div class="dock-tabs" role="tablist" aria-label="Right panels">
+        <button class="dock-tab active" data-panel="atom" role="tab" aria-selected="true">Atom</button>
+        <button class="dock-tab" data-panel="props" role="tab" aria-selected="false">Properties</button>
+        <button class="dock-tab" data-panel="instrument" role="tab" aria-selected="false">Instrument</button>
+        <button class="dock-tab" data-panel="solver" role="tab" aria-selected="false">Solver</button>
+        <button class="dock-tab" data-panel="measure" role="tab" aria-selected="false">Measure</button>
+      </div>
+      <div class="dock-body">
+        <section class="panel" id="panel-atom" role="tabpanel">
+          <div class="panel-head">Atom inspector <span class="hint" id="atom-head-hint"></span></div>
+          <div class="subtabs" role="tablist" aria-label="Atom inspector sections">
+            <button class="subtab active" data-sub="identity" role="tab" aria-selected="true">Identity</button>
+            <button class="subtab" data-sub="nucleus" role="tab" aria-selected="false">Nucleus</button>
+            <button class="subtab" data-sub="electrons" role="tab" aria-selected="false">Electrons</button>
+            <button class="subtab" data-sub="orbitals" role="tab" aria-selected="false">Orbitals</button>
+            <button class="subtab" data-sub="shell" role="tab" aria-selected="false">Shell diagram</button>
+            <button class="subtab" data-sub="bonds" role="tab" aria-selected="false">Bonds</button>
+            <button class="subtab" data-sub="ldos" role="tab" aria-selected="false">LDOS</button>
+            <button class="subtab" data-sub="energy" role="tab" aria-selected="false">Energy</button>
+            <button class="subtab" data-sub="probe" role="tab" aria-selected="false">Probe</button>
+            <button class="subtab" data-sub="record" role="tab" aria-selected="false">Solver record</button>
+            <button class="subtab" data-sub="python" role="tab" aria-selected="false">Python</button>
+          </div>
+          <div class="detail-scroll" id="atom-body">
+            <p class="empty">No atom selected. Choose the Select tool and click an atom in the
+            atomic model, or click a feature in the probe image.</p>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-props" role="tabpanel" hidden>
+          <div class="panel-head">Properties</div>
+          <div class="detail-scroll" id="props-body"></div>
+        </section>
+
+        <section class="panel" id="panel-instrument" role="tabpanel" hidden>
+          <div class="panel-head">Instrument control</div>
+          <div class="detail-scroll" id="instrument-body"></div>
+        </section>
+
+        <section class="panel" id="panel-solver" role="tabpanel" hidden>
+          <div class="panel-head">Solvers and models</div>
+          <div class="detail-scroll" id="solver-body"></div>
+        </section>
+
+        <section class="panel" id="panel-measure" role="tabpanel" hidden>
+          <div class="panel-head">Measurement</div>
+          <div class="detail-scroll" id="measure-body"></div>
+        </section>
+      </div>
+    </aside>
+  </div>
+
+  <div class="splitter horizontal" data-target="bottom-dock" role="separator"
+       aria-orientation="horizontal" tabindex="0" aria-label="Resize bottom panel"></div>
+
+  <!-- =========================== BOTTOM DOCK ========================== -->
+  <section id="bottom-dock">
+    <div class="dock-tabs" role="tablist" aria-label="Bottom panels">
+      <button class="dock-tab active" data-panel="console" role="tab" aria-selected="true">Python</button>
+      <button class="dock-tab" data-panel="log" role="tab" aria-selected="false">Job log</button>
+      <button class="dock-tab" data-panel="warnings" role="tab" aria-selected="false">
+        Warnings <span class="badge" id="warn-badge" hidden>0</span></button>
+      <button class="dock-tab" data-panel="output" role="tab" aria-selected="false">Output</button>
+      <button class="dock-tab" data-panel="history" role="tab" aria-selected="false">History</button>
+      <span class="view-tabs-spacer"></span>
+      <span class="readout mono" id="console-mode-readout">restricted</span>
+    </div>
+
+    <div class="dock-body">
+      <section class="panel console" id="panel-console" role="tabpanel">
+        <div class="console-toolbar">
+          <button class="tool sm" id="btn-run-script" title="Run (Ctrl+Enter)">Run</button>
+          <button class="tool sm" id="btn-clear-console">Clear</button>
+          <label class="tool-label" for="script-mode">Mode</label>
+          <select id="script-mode" aria-label="Execution mode">
+            <option value="restricted">restricted</option>
+            <option value="trusted">trusted</option>
+            <option value="subprocess">subprocess</option>
+          </select>
+          <select id="script-examples" aria-label="Insert example script">
+            <option value="">examples&hellip;</option>
+          </select>
+          <span class="hint" id="console-hint">Real Python. Ctrl+Enter runs.</span>
+        </div>
+        <div class="console-split">
+          <textarea id="script-editor" spellcheck="false" aria-label="Python editor"></textarea>
+          <div id="script-output" class="console-output mono" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-log" role="tabpanel" hidden>
+        <div class="table-wrap"><table class="grid" id="job-table">
+          <thead><tr><th>job</th><th>kind</th><th>status</th><th>progress</th>
+          <th>elapsed</th><th>message</th><th></th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section class="panel" id="panel-warnings" role="tabpanel" hidden>
+        <div class="log" id="warning-log"></div>
+      </section>
+
+      <section class="panel" id="panel-output" role="tabpanel" hidden>
+        <div class="log mono" id="numeric-output"></div>
+      </section>
+
+      <section class="panel" id="panel-history" role="tabpanel" hidden>
+        <div class="table-wrap"><table class="grid" id="history-table">
+          <thead><tr><th>time</th><th>operation</th><th>description</th><th>state</th></tr></thead>
+          <tbody></tbody></table></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============================ STATUS BAR ========================== -->
+  <div id="statusbar" role="status" aria-live="polite">
+    <span class="status-cell mono" id="status-coords">-</span>
+    <span class="status-cell mono" id="status-value">-</span>
+    <span class="status-cell" id="status-tool">Tool: navigate</span>
+    <span class="status-cell" id="status-selection">Selection: 0</span>
+    <span class="status-cell" id="status-model">Model: -</span>
+    <span class="status-spacer"></span>
+    <span class="status-cell" id="status-job">Idle</span>
+    <span class="status-cell mono" id="status-units">units: &#8491;, eV, K</span>
+    <span class="status-cell" id="status-version"></span>
+  </div>
+</div>
+
+<div id="modal-backdrop" class="modal-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-head" id="modal-title">Dialog</div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-foot" id="modal-foot"></div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

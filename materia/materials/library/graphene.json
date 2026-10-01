@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "id": "graphene",
+  "name": "Graphene",
+  "formula": "C",
+  "aliases": [
+    "C-2D",
+    "monolayer graphite"
+  ],
+  "category": "two-dimensional material",
+  "structure": {
+    "prototype": "honeycomb-2d",
+    "space_group": {
+      "number": 191,
+      "symbol": "P6/mmm"
+    },
+    "lattice": {
+      "a": 2.4612,
+      "c": 20.0,
+      "unit": "A",
+      "system": "layered-2d",
+      "temperature_K": 300,
+      "source": "In-plane constant from graphite, Y. Baskin and L. Meyer, Phys. Rev. 100 (1955) 544; c is a vacuum padding convention, not a physical repeat."
+    },
+    "basis": [
+      {
+        "element": "C",
+        "fractional": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "label": "C(A)",
+        "wyckoff": "2c"
+      },
+      {
+        "element": "C",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.5
+        ],
+        "label": "C(B)",
+        "wyckoff": "2c"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "pristine",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "Pristine basal plane; the only meaningful termination for a monolayer.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "ripples",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "Intrinsic out-of-plane ripples of suspended graphene.",
+      "implemented": false,
+      "reference": "J. C. Meyer et al., Nature 446 (2007) 60",
+      "note": "Not generated in v0.1; thermal corrugation must come from finite-temperature dynamics."
+    }
+  ],
+  "properties": {
+    "density": {
+      "value": 7.6e-08,
+      "unit": "g/cm^2",
+      "conditions": "areal mass density of one layer",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    },
+    "band_gap": {
+      "value": 0.0,
+      "unit": "eV",
+      "conditions": "pristine, gapless Dirac semimetal",
+      "source": "A. H. Castro Neto et al., Rev. Mod. Phys. 81 (2009) 109"
+    },
+    "band_gap_type": {
+      "value": "gapless (Dirac point)",
+      "unit": "",
+      "source": "classification following the band-gap reference cited for this material"
+    },
+    "fermi_velocity": {
+      "value": 1000000.0,
+      "unit": "m/s",
+      "source": "A. H. Castro Neto et al., Rev. Mod. Phys. 81 (2009) 109"
+    },
+    "work_function": {
+      "value": 4.6,
+      "unit": "eV",
+      "conditions": "undoped, supported",
+      "source": "Y.-J. Yu et al., Nano Lett. 9 (2009) 3430"
+    },
+    "bond_length": {
+      "value": 1.42,
+      "unit": "A",
+      "conditions": "C-C in-plane",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    },
+    "youngs_modulus_2d": {
+      "value": 340,
+      "unit": "N/m",
+      "source": "C. Lee et al., Science 321 (2008) 385"
+    },
+    "thermal_conductivity": {
+      "value": 3000,
+      "unit": "W/(m K)",
+      "conditions": "suspended, 300 K, sample dependent",
+      "uncertainty": 1500,
+      "source": "A. A. Balandin, Nature Mater. 10 (2011) 569"
+    },
+    "tb_hopping_pi": {
+      "value": -2.7,
+      "unit": "eV",
+      "conditions": "nearest-neighbour pi hopping t",
+      "source": "A. H. Castro Neto et al., Rev. Mod. Phys. 81 (2009) 109"
+    }
+  },
+  "recommended_models": {
+    "relax": "lennard-jones-generic",
+    "electronic": "tight-binding-pz",
+    "stm": "tersoff-hamann",
+    "high-fidelity": "external:gpaw"
+  },
+  "references": [
+    "P. R. Wallace, Phys. Rev. 71 (1947) 622",
+    "A. H. Castro Neto, F. Guinea, N. M. R. Peres, K. S. Novoselov, A. K. Geim, Rev. Mod. Phys. 81 (2009) 109"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Compiled by the Materia project from the cited primary sources."
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "id": "silicon_dioxide",
+  "name": "Silicon dioxide (alpha-quartz)",
+  "formula": "SiO2",
+  "aliases": [
+    "SiO2",
+    "quartz",
+    "alpha-quartz",
+    "silica"
+  ],
+  "category": "oxide insulator",
+  "structure": {
+    "prototype": "alpha-quartz",
+    "space_group": {
+      "number": 154,
+      "symbol": "P3_221"
+    },
+    "lattice": {
+      "a": 4.9134,
+      "unit": "A",
+      "system": "hexagonal",
+      "temperature_K": 300,
+      "source": "L. Levien, C. T. Prewitt, D. J. Weidner, Am. Mineral. 65 (1980) 920",
+      "c": 5.4052
+    },
+    "basis": [
+      {
+        "element": "Si",
+        "fractional": [
+          0.4697,
+          0.0,
+          0.6666667
+        ],
+        "label": "Si",
+        "wyckoff": "3a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.0,
+          0.4697,
+          0.3333333
+        ],
+        "label": "Si",
+        "wyckoff": "3a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.5303,
+          0.5303,
+          0.0
+        ],
+        "label": "Si",
+        "wyckoff": "3a"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.4135,
+          0.2669,
+          0.7857667
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.7331,
+          0.1466,
+          0.4524333
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.8534,
+          0.5865,
+          0.1191
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.2669,
+          0.4135,
+          0.2142333
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.1466,
+          0.7331,
+          0.5475667
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.5865,
+          0.8534,
+          0.8809
+        ],
+        "label": "O",
+        "wyckoff": "6c"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "ideal-bulk",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "Ideal bulk truncation with no reconstruction applied.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [],
+  "properties": {
+    "density": {
+      "value": 2.648,
+      "unit": "g/cm^3",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "band_gap": {
+      "value": 8.9,
+      "unit": "eV",
+      "conditions": "300 K",
+      "source": "T. H. DiStefano and D. E. Eastman, Solid State Commun. 9 (1971) 2259"
+    },
+    "band_gap_type": {
+      "value": "wide-gap insulator",
+      "unit": "",
+      "source": "definition"
+    },
+    "dielectric_constant": {
+      "value": 4.52,
+      "unit": "",
+      "conditions": "static (low frequency), room temperature, perpendicular to c; 4.64 parallel to c. Amorphous thermal SiO2 is about 3.9 and is a different material.",
+      "source": "J. Fontanella, C. Andeen and D. Schuele, J. Appl. Phys. 45 (1974) 2852"
+    },
+    "melting_point": {
+      "value": 1983,
+      "unit": "K",
+      "conditions": "melting of silica as beta-cristobalite. Alpha-quartz does not melt as such: it converts to beta-quartz at 846 K and to other silica phases before melting.",
+      "source": "CRC Handbook"
+    },
+    "bond_length": {
+      "value": 1.609,
+      "unit": "A",
+      "conditions": "mean Si-O; the two distinct bonds are 1.6039 and 1.6132 A",
+      "source": "L. Levien, C. T. Prewitt, D. J. Weidner, Am. Mineral. 65 (1980) 920"
+    },
+    "alpha_beta_transition": {
+      "value": 846,
+      "unit": "K",
+      "conditions": "alpha-quartz to beta-quartz at ambient pressure",
+      "source": "CRC Handbook"
+    }
+  },
+  "recommended_models": {
+    "relax": "rigid-ion/bks-silica",
+    "dynamics": "rigid-ion/bks-silica",
+    "electronic": "unsupported",
+    "stm": "unsupported",
+    "high-fidelity": "external:cp2k"
+  },
+  "references": [
+    "CRC Handbook",
+    "J. Fontanella, C. Andeen and D. Schuele, J. Appl. Phys. 45 (1974) 2852",
+    "L. Levien, C. T. Prewitt, D. J. Weidner, Am. Mineral. 65 (1980) 920",
+    "T. H. DiStefano and D. E. Eastman, Solid State Commun. 9 (1971) 2259",
+    "B. W. H. van Beest, G. J. Kramer and R. A. van Santen, Phys. Rev. Lett. 64 (1990) 1955",
+    "definition"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Basis expanded from the Wyckoff parameters of L. Levien, C. T. Prewitt and D. J. Weidner, Am. Mineral. 65 (1980) 920, in the P3_2 21 setting with Si on 3a at x = 0.4697, z = 2/3 and O on 6c at (0.4135, 0.2669, 0.7858). The generated cell reproduces the published Si-O distances of 1.604 and 1.613 A and the O-O distances of 2.61-2.64 A, which tests/validation checks on every run. Thermal gate oxide is amorphous; an amorphous SiO2 model is on the roadmap and is not provided in v0.1."
+}

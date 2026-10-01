@@ -1,0 +1,27 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the macOS and Windows packages
+        run: |
+          python -m pip install numpy scipy
+          python tools/make_release.py --output dist
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip --title "Materia ${GITHUB_REF_NAME#v}" --notes-file docs/RELEASE_NOTES.md || gh release upload "$GITHUB_REF_NAME" dist/*.zip --clobber

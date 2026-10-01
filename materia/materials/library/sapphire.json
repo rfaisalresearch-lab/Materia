@@ -1,0 +1,411 @@
+{
+  "schema_version": "1.0",
+  "id": "sapphire",
+  "name": "Sapphire (alpha-alumina)",
+  "formula": "Al2O3",
+  "aliases": [
+    "Al2O3",
+    "alpha-Al2O3",
+    "aluminium oxide",
+    "aluminum oxide",
+    "corundum"
+  ],
+  "category": "oxide insulator",
+  "structure": {
+    "prototype": "corundum",
+    "space_group": {
+      "number": 167,
+      "symbol": "R-3c"
+    },
+    "lattice": {
+      "a": 4.7591,
+      "unit": "A",
+      "system": "hexagonal",
+      "temperature_K": 300,
+      "source": "N. Ishizawa et al., Acta Cryst. B 36 (1980) 228",
+      "c": 12.9894
+    },
+    "basis": [
+      {
+        "element": "Al",
+        "fractional": [
+          0.0,
+          0.0,
+          0.35216
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.0,
+          0.0,
+          0.64784
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.0,
+          0.0,
+          0.85216
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.0,
+          0.0,
+          0.14784
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.6854933
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.9811733
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.1854933
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.4811733
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.0188267
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.3145067
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.5188267
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "Al",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.8145067
+        ],
+        "label": "Al",
+        "wyckoff": "12c"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.30624,
+          0.0,
+          0.25
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.0,
+          0.30624,
+          0.25
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.69376,
+          0.69376,
+          0.25
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.69376,
+          0.0,
+          0.75
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.0,
+          0.69376,
+          0.75
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.30624,
+          0.30624,
+          0.75
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.9729067,
+          0.3333333,
+          0.5833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.6666667,
+          0.6395733,
+          0.5833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.3604267,
+          0.0270933,
+          0.5833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.3604267,
+          0.3333333,
+          0.0833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.6666667,
+          0.0270933,
+          0.0833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.9729067,
+          0.6395733,
+          0.0833333
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.6395733,
+          0.6666667,
+          0.9166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.3333333,
+          0.9729067,
+          0.9166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.0270933,
+          0.3604267,
+          0.9166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.0270933,
+          0.6666667,
+          0.4166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.3333333,
+          0.3604267,
+          0.4166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      },
+      {
+        "element": "O",
+        "fractional": [
+          0.6395733,
+          0.9729067,
+          0.4166667
+        ],
+        "label": "O",
+        "wyckoff": "18e"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      2
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "ideal-bulk",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "Ideal bulk truncation with no reconstruction applied.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [],
+  "properties": {
+    "density": {
+      "value": 3.98,
+      "unit": "g/cm^3",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "band_gap": {
+      "value": 8.8,
+      "unit": "eV",
+      "conditions": "300 K, optical",
+      "source": "R. H. French, J. Am. Ceram. Soc. 73 (1990) 477"
+    },
+    "band_gap_type": {
+      "value": "wide-gap insulator",
+      "unit": "",
+      "source": "definition"
+    },
+    "dielectric_constant": {
+      "value": 9.4,
+      "unit": "",
+      "conditions": "static, perpendicular c",
+      "source": "CRC Handbook"
+    },
+    "melting_point": {
+      "value": 2345,
+      "unit": "K",
+      "source": "CRC Handbook"
+    },
+    "thermal_conductivity": {
+      "value": 30,
+      "unit": "W/(m K)",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    }
+  },
+  "recommended_models": {
+    "relax": "unsupported",
+    "electronic": "unsupported",
+    "stm": "unsupported",
+    "high-fidelity": "external:quantum-espresso"
+  },
+  "references": [
+    "CRC Handbook",
+    "N. Ishizawa et al., Acta Cryst. B 36 (1980) 228",
+    "R. H. French, J. Am. Ceram. Soc. 73 (1990) 477",
+    "definition"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Generated by tools/gen_crystal_materials.py; basis expanded from the published Wyckoff parameters of the cited structure determination. Alumina is a wide-gap insulator: tunnelling STM imaging of the bare surface is not physically meaningful, and the STM model returns an explicit unsupported result for it."
+}

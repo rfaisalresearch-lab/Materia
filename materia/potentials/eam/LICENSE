@@ -1,0 +1,18 @@
+Cu_Zhou04.eam.alloy, Au_Zhou04.eam.alloy and W_Zhou04.eam.alloy
+
+These three parameter files are reproduced unmodified from the OpenKIM
+archives
+
+  EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Cu__MO_759493141826_001
+  EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Au__MO_684444719999_001
+  EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_W__MO_914556822329_001
+
+each of which carries a LICENSE file whose complete text is:
+
+  This work is dedicated to the public domain.
+
+They are therefore not covered by the MIT licence of the rest of
+Materia. Their SHA-256 checksums are recorded in manifest.json and checked
+every time a file is loaded.
+
+Please cite the publications listed in manifest.json when you use them.

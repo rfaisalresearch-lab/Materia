@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "id": "gold",
+  "name": "Gold",
+  "formula": "Au",
+  "aliases": [
+    "Au"
+  ],
+  "category": "noble metal",
+  "structure": {
+    "prototype": "fcc",
+    "space_group": {
+      "number": 225,
+      "symbol": "Fm-3m"
+    },
+    "lattice": {
+      "a": 4.0782,
+      "unit": "A",
+      "system": "cubic",
+      "temperature_K": 298,
+      "source": "CRC Handbook, 104th ed., crystallographic data"
+    },
+    "basis": [
+      {
+        "element": "Au",
+        "fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "label": "Au",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "Au",
+        "fractional": [
+          0.0,
+          0.5,
+          0.5
+        ],
+        "label": "Au",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "Au",
+        "fractional": [
+          0.5,
+          0.0,
+          0.5
+        ],
+        "label": "Au",
+        "wyckoff": "4a"
+      },
+      {
+        "element": "Au",
+        "fractional": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "label": "Au",
+        "wyckoff": "4a"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "ideal-bulk",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "Ideal close-packed Au(111) truncation.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "herringbone-22xsqrt3",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "The (22 x sqrt(3)) herringbone reconstruction of Au(111).",
+      "implemented": false,
+      "reference": "J. V. Barth et al., Phys. Rev. B 42 (1990) 9307",
+      "note": "Not implemented in v0.1; the generated Au(111) surface is the unreconstructed 1x1 truncation and is labelled as such."
+    }
+  ],
+  "properties": {
+    "density": {
+      "value": 19.3,
+      "unit": "g/cm^3",
+      "conditions": "293 K",
+      "source": "CRC Handbook"
+    },
+    "band_gap": {
+      "value": 0.0,
+      "unit": "eV",
+      "conditions": "metal",
+      "source": "definition"
+    },
+    "band_gap_type": {
+      "value": "metal",
+      "unit": "",
+      "source": "classification following the band-gap reference cited for this material"
+    },
+    "work_function": {
+      "value": 5.31,
+      "unit": "eV",
+      "conditions": "(111) face",
+      "source": "H. B. Michaelson, J. Appl. Phys. 48 (1977) 4729"
+    },
+    "melting_point": {
+      "value": 1337.33,
+      "unit": "K",
+      "source": "CRC Handbook"
+    },
+    "thermal_conductivity": {
+      "value": 317,
+      "unit": "W/(m K)",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "elastic_C11": {
+      "value": 192.9,
+      "unit": "GPa",
+      "conditions": "300 K",
+      "source": "J. R. Neighbours and G. A. Alers, Phys. Rev. 111 (1958) 707"
+    },
+    "elastic_C12": {
+      "value": 163.8,
+      "unit": "GPa",
+      "conditions": "300 K",
+      "source": "J. R. Neighbours and G. A. Alers, Phys. Rev. 111 (1958) 707"
+    },
+    "elastic_C44": {
+      "value": 41.5,
+      "unit": "GPa",
+      "conditions": "300 K",
+      "source": "J. R. Neighbours and G. A. Alers, Phys. Rev. 111 (1958) 707"
+    },
+    "cohesive_energy": {
+      "value": 3.81,
+      "unit": "eV/atom",
+      "source": "C. Kittel, Introduction to Solid State Physics, 8th ed."
+    },
+    "nearest_neighbour_distance": {
+      "value": 2.8837,
+      "unit": "A",
+      "conditions": "derived a/sqrt(2)",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    },
+    "lj_epsilon": {
+      "value": 0.44251,
+      "unit": "eV",
+      "conditions": "12-6 Lennard-Jones, infinite-range fcc lattice sums: E_coh / 8.6102. LennardJones.from_material rederives epsilon for the cutoff it uses, 0.46047 eV at the default 10 A shifted cutoff, so that the crystal it evaluates has exactly this cohesive energy",
+      "source": "derived from cohesive_energy in this file",
+      "origin": "calculated",
+      "note": "A pair potential cannot reproduce metallic many-body bonding. Use an EAM potential through the LAMMPS adapter for quantitative metal energetics."
+    },
+    "lj_sigma": {
+      "value": 2.64518,
+      "unit": "A",
+      "conditions": "infinite-range fcc lattice sums: r_nn / 1.09026. LennardJones.from_material rederives sigma for its cutoff, 2.64084 A at the default 10 A shifted cutoff",
+      "source": "derived from nearest_neighbour_distance in this file",
+      "origin": "calculated"
+    }
+  },
+  "recommended_models": {
+    "relax": "eam/Au-Zhou04",
+    "electronic": "unsupported",
+    "stm": "tersoff-hamann-jellium",
+    "high-fidelity": "external:lammps-eam"
+  },
+  "references": [
+    "H. B. Michaelson, J. Appl. Phys. 48 (1977) 4729",
+    "J. V. Barth, H. Brune, G. Ertl, R. J. Behm, Phys. Rev. B 42 (1990) 9307"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Compiled by the Materia project from the cited primary sources. The Lennard-Jones parameters are an Materia-internal fit, explicitly flagged as an approximation unsuitable for quantitative metal energetics."
+}

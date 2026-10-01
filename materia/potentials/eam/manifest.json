@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "potentials": [
+    {
+      "id": "Cu-Zhou04",
+      "file": "Cu_Zhou04.eam.alloy",
+      "format": "setfl",
+      "family": "embedded-atom method, eam/alloy (setfl) tabulation",
+      "elements": [
+        "Cu"
+      ],
+      "intended_structures": {
+        "Cu": "fcc"
+      },
+      "sha256": "34bcf92bc7e14b6316caea2b03975d188cc13593da72d1552fcd838d449f5771",
+      "sha1": "d7cb718283a0d5807ce1c1ec9987c024561a70cb",
+      "size_bytes": 146827,
+      "title": "EAM potential for Cu by Zhou, Johnson and Wadley (2004), NIST retabulation v001",
+      "openkim_id": "EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Cu__MO_759493141826_001",
+      "openkim_doi": "10.25950/a2be92ad",
+      "source_url": "https://openkim.org/id/EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Cu__MO_759493141826_001",
+      "content_origin": "NIST Interatomic Potentials Repository, retabulated by L. M. Hale (NIST) from Zhou04_create_v2.f to remove single/double precision fluctuations in the original tables",
+      "retrieved": "2026-09-25",
+      "license": "Public domain",
+      "license_text": "This work is dedicated to the public domain.",
+      "license_source": "LICENSE file inside the OpenKIM archive EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Cu__MO_759493141826_001.txz",
+      "citations": [
+        "X. W. Zhou, R. A. Johnson and H. N. G. Wadley, Misfit-energy-increasing dislocations in vapor-deposited CoFe/NiFe multilayers, Phys. Rev. B 69 (2004) 144113, doi:10.1103/PhysRevB.69.144113",
+        "X. W. Zhou, H. N. G. Wadley, R. A. Johnson et al., Atomic scale structure of sputtered metal multilayers, Acta Mater. 49 (2001) 4005, doi:10.1016/S1359-6454(01)00287-7",
+        "M. S. Daw and M. I. Baskes, Embedded-atom method, Phys. Rev. B 29 (1984) 6443, doi:10.1103/PhysRevB.29.6443",
+        "OpenKIM archive of this model, doi:10.25950/a2be92ad"
+      ],
+      "interpolation": "cubic Hermite with fourth-order finite-difference slopes, as in LAMMPS pair_style eam/alloy and the OpenKIM EAM_Dynamo driver (MD_120291908751_006, doi:10.25950/233cb735)",
+      "notes": [
+        "Fitted as a member of a sixteen-element database intended for vapor-deposited metal multilayers. Its authors state it was not designed for intermetallic compounds.",
+        "The lattice-type field in the file header reads fcc for every element of the database, including W. The setfl format does not use that field and neither does Materia; the equilibrium structure is established by calculation.",
+        "Each file contains one element. Materia does not combine files, so no alloy is offered from these potentials."
+      ]
+    },
+    {
+      "id": "Au-Zhou04",
+      "file": "Au_Zhou04.eam.alloy",
+      "format": "setfl",
+      "family": "embedded-atom method, eam/alloy (setfl) tabulation",
+      "elements": [
+        "Au"
+      ],
+      "intended_structures": {
+        "Au": "fcc"
+      },
+      "sha256": "746b008d8849eea584ee3de3abe48791747e62a929e6dca8c3346181a7650e34",
+      "sha1": "a51e27208681b36915a40ee1e719c24e5100230f",
+      "size_bytes": 146827,
+      "title": "EAM potential for Au by Zhou, Johnson and Wadley (2004), NIST retabulation v001",
+      "openkim_id": "EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Au__MO_684444719999_001",
+      "openkim_doi": "10.25950/7833e99e",
+      "source_url": "https://openkim.org/id/EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Au__MO_684444719999_001",
+      "content_origin": "NIST Interatomic Potentials Repository, retabulated by L. M. Hale (NIST) from Zhou04_create_v2.f to remove single/double precision fluctuations in the original tables",
+      "retrieved": "2026-09-25",
+      "license": "Public domain",
+      "license_text": "This work is dedicated to the public domain.",
+      "license_source": "LICENSE file inside the OpenKIM archive EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_Au__MO_684444719999_001.txz",
+      "citations": [
+        "X. W. Zhou, R. A. Johnson and H. N. G. Wadley, Misfit-energy-increasing dislocations in vapor-deposited CoFe/NiFe multilayers, Phys. Rev. B 69 (2004) 144113, doi:10.1103/PhysRevB.69.144113",
+        "X. W. Zhou, H. N. G. Wadley, R. A. Johnson et al., Atomic scale structure of sputtered metal multilayers, Acta Mater. 49 (2001) 4005, doi:10.1016/S1359-6454(01)00287-7",
+        "M. S. Daw and M. I. Baskes, Embedded-atom method, Phys. Rev. B 29 (1984) 6443, doi:10.1103/PhysRevB.29.6443",
+        "OpenKIM archive of this model, doi:10.25950/7833e99e"
+      ],
+      "interpolation": "cubic Hermite with fourth-order finite-difference slopes, as in LAMMPS pair_style eam/alloy and the OpenKIM EAM_Dynamo driver (MD_120291908751_006, doi:10.25950/233cb735)",
+      "notes": [
+        "Fitted as a member of a sixteen-element database intended for vapor-deposited metal multilayers. Its authors state it was not designed for intermetallic compounds.",
+        "The lattice-type field in the file header reads fcc for every element of the database, including W. The setfl format does not use that field and neither does Materia; the equilibrium structure is established by calculation.",
+        "Each file contains one element. Materia does not combine files, so no alloy is offered from these potentials."
+      ]
+    },
+    {
+      "id": "W-Zhou04",
+      "file": "W_Zhou04.eam.alloy",
+      "format": "setfl",
+      "family": "embedded-atom method, eam/alloy (setfl) tabulation",
+      "elements": [
+        "W"
+      ],
+      "intended_structures": {
+        "W": "bcc"
+      },
+      "sha256": "4ae0749ce44dc313d625d30575572fb23084ab3280407a85e77e0a4a027755bb",
+      "sha1": "265e108cd38dbb04a4c3b8aaf51167bd9383f53f",
+      "size_bytes": 146827,
+      "title": "EAM potential for W by Zhou, Johnson and Wadley (2004), NIST retabulation v001",
+      "openkim_id": "EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_W__MO_914556822329_001",
+      "openkim_doi": "10.25950/2d54fc66",
+      "source_url": "https://openkim.org/id/EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_W__MO_914556822329_001",
+      "content_origin": "NIST Interatomic Potentials Repository, retabulated by L. M. Hale (NIST) from Zhou04_create_v2.f to remove single/double precision fluctuations in the original tables",
+      "retrieved": "2026-09-25",
+      "license": "Public domain",
+      "license_text": "This work is dedicated to the public domain.",
+      "license_source": "LICENSE file inside the OpenKIM archive EAM_Dynamo_ZhouJohnsonWadley_2004NISTretabulation_W__MO_914556822329_001.txz",
+      "citations": [
+        "X. W. Zhou, R. A. Johnson and H. N. G. Wadley, Misfit-energy-increasing dislocations in vapor-deposited CoFe/NiFe multilayers, Phys. Rev. B 69 (2004) 144113, doi:10.1103/PhysRevB.69.144113",
+        "X. W. Zhou, H. N. G. Wadley, R. A. Johnson et al., Atomic scale structure of sputtered metal multilayers, Acta Mater. 49 (2001) 4005, doi:10.1016/S1359-6454(01)00287-7",
+        "M. S. Daw and M. I. Baskes, Embedded-atom method, Phys. Rev. B 29 (1984) 6443, doi:10.1103/PhysRevB.29.6443",
+        "OpenKIM archive of this model, doi:10.25950/2d54fc66"
+      ],
+      "interpolation": "cubic Hermite with fourth-order finite-difference slopes, as in LAMMPS pair_style eam/alloy and the OpenKIM EAM_Dynamo driver (MD_120291908751_006, doi:10.25950/233cb735)",
+      "notes": [
+        "Fitted as a member of a sixteen-element database intended for vapor-deposited metal multilayers. Its authors state it was not designed for intermetallic compounds.",
+        "The lattice-type field in the file header reads fcc for every element of the database, including W. The setfl format does not use that field and neither does Materia; the equilibrium structure is established by calculation.",
+        "Each file contains one element. Materia does not combine files, so no alloy is offered from these potentials."
+      ]
+    }
+  ]
+}

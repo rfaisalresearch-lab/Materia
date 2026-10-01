@@ -1,0 +1,88 @@
+cff-version: 1.2.0
+title: "Materia: atomic-scale wafer exploration and scanning-probe simulation"
+message: "If you use this software in work you publish, please cite it, and cite the models it used as well. Every result carries the primary references for the model that produced it."
+type: software
+authors:
+  - name: "The Materia contributors"
+version: 0.2.0
+license: MIT
+repository-code: "https://github.com/rfaisalresearch-lab/materia"
+abstract: >-
+  Materia is a local desktop application for semiconductor surface science. It
+  represents a wafer procedurally, instantiates an explicit atomistic region only
+  where the user looks, and simulates scanning tunnelling and atomic force
+  microscopy of that region. Structure generation is exact crystallography;
+  energetics use empirical interatomic potentials; electronic structure uses
+  orthogonal semi-empirical tight binding; and adapters expose installed
+  first-principles packages. Every reported quantity carries a provenance record
+  naming the model, its approximations, its tolerances and its convergence state,
+  and requests outside a model's domain are refused rather than approximated.
+keywords:
+  - scanning tunnelling microscopy
+  - atomic force microscopy
+  - semiconductor
+  - tight binding
+  - crystallography
+  - surface science
+references:
+  - type: article
+    authors:
+      - family-names: Tersoff
+        given-names: J.
+      - family-names: Hamann
+        given-names: D. R.
+    title: "Theory of the scanning tunneling microscope"
+    journal: "Physical Review B"
+    volume: 31
+    start: 805
+    year: 1985
+  - type: article
+    authors:
+      - family-names: Stillinger
+        given-names: F. H.
+      - family-names: Weber
+        given-names: T. A.
+    title: "Computer simulation of local order in condensed phases of silicon"
+    journal: "Physical Review B"
+    volume: 31
+    start: 5262
+    year: 1985
+  - type: article
+    authors:
+      - family-names: Vogl
+        given-names: P.
+      - family-names: Hjalmarson
+        given-names: H. P.
+      - family-names: Dow
+        given-names: J. D.
+    title: "A semi-empirical tight-binding theory of the electronic structure of semiconductors"
+    journal: "Journal of Physics and Chemistry of Solids"
+    volume: 44
+    start: 365
+    year: 1983
+  - type: article
+    authors:
+      - family-names: Giessibl
+        given-names: F. J.
+    title: "Advances in atomic force microscopy"
+    journal: "Reviews of Modern Physics"
+    volume: 75
+    start: 949
+    year: 2003
+  - type: article
+    authors:
+      - family-names: Bitzek
+        given-names: E.
+      - family-names: Koskinen
+        given-names: P.
+      - family-names: Gähler
+        given-names: F.
+      - family-names: Moseler
+        given-names: M.
+      - family-names: Gumbsch
+        given-names: P.
+    title: "Structural relaxation made simple"
+    journal: "Physical Review Letters"
+    volume: 97
+    start: 170201
+    year: 2006

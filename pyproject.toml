@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "materia"
+version = "0.2.0"
+description = "Atomic-scale wafer exploration and scanning-probe simulation platform"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Materia contributors" }]
+keywords = ["stm", "afm", "semiconductor", "wafer", "tight-binding", "crystallography"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+adapters = ["ase>=3.22"]
+bigdata = ["h5py>=3.8"]
+dev = ["pytest>=7.4", "pytest-timeout>=2.1"]
+molecular = ["pyscf>=2.6", "pyscf-properties>=0.1", "rdkit>=2024.3", "tblite>=0.4", "openmm>=8.1",
+             "pdbfixer>=1.9"]
+nuclear = ["radioactivedecay>=0.6", "particle>=0.24"]
+device = ["devsim>=2.8"]
+defects = ["matscipy>=1.0"]
+xray = ["xraydb>=4.5"]
+desktop = ["pywebview>=5.0"]
+validation = ["phonopy>=2.20"]
+all = ["ase>=3.22", "h5py>=3.8", "pytest>=7.4", "pytest-timeout>=2.1"]
+
+[project.scripts]
+materia = "materia.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rfaisalresearch-lab/materia"
+Documentation = "https://github.com/rfaisalresearch-lab/materia/tree/main/docs"
+
+[tool.setuptools.packages.find]
+include = ["materia*"]
+
+[tool.setuptools.package-data]
+materia = [
+  "materials/library/*.json",
+  "elements/nuclear_data/*.txt",
+  "elements/nuclear_data/README.md",
+  "potentials/eam/*.eam.alloy",
+  "potentials/eam/manifest.json",
+  "potentials/eam/LICENSE",
+  "desktop_ui/menus.json",
+  "desktop_ui/static/*.json",
+  "desktop_ui/static/*.html",
+  "desktop_ui/static/css/*.css",
+  "desktop_ui/static/js/*.js",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "validation: physical validation case, not an implementation unit test",
+  "performance: measures runtime; may be slow",
+  "slow: long running",
+]
+filterwarnings = ["error::DeprecationWarning:materia.*"]

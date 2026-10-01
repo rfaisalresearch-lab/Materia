@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0",
+  "id": "silicon_carbide_4h",
+  "name": "Silicon carbide (4H polytype)",
+  "formula": "SiC",
+  "aliases": [
+    "4H-SiC",
+    "SiC-4H"
+  ],
+  "category": "wide-bandgap compound semiconductor",
+  "structure": {
+    "prototype": "wurtzite-polytype",
+    "space_group": {
+      "number": 186,
+      "symbol": "P6_3mc"
+    },
+    "lattice": {
+      "a": 3.0798,
+      "c": 10.082,
+      "unit": "A",
+      "system": "hexagonal",
+      "temperature_K": 300,
+      "source": "A. Bauer et al., Acta Cryst. B 57 (2001) 60"
+    },
+    "basis": [
+      {
+        "element": "Si",
+        "fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "label": "Si(k)",
+        "wyckoff": "2a"
+      },
+      {
+        "element": "C",
+        "fractional": [
+          0.0,
+          0.0,
+          0.1875
+        ],
+        "label": "C(k)",
+        "wyckoff": "2a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.25
+        ],
+        "label": "Si(h)",
+        "wyckoff": "2b"
+      },
+      {
+        "element": "C",
+        "fractional": [
+          0.3333333,
+          0.6666667,
+          0.4375
+        ],
+        "label": "C(h)",
+        "wyckoff": "2b"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.0,
+          0.0,
+          0.5
+        ],
+        "label": "Si(k)",
+        "wyckoff": "2a"
+      },
+      {
+        "element": "C",
+        "fractional": [
+          0.0,
+          0.0,
+          0.6875
+        ],
+        "label": "C(k)",
+        "wyckoff": "2a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.75
+        ],
+        "label": "Si(h)",
+        "wyckoff": "2b"
+      },
+      {
+        "element": "C",
+        "fractional": [
+          0.6666667,
+          0.3333333,
+          0.9375
+        ],
+        "label": "C(h)",
+        "wyckoff": "2b"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "Si-face-0001",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "(0001) silicon face, the standard epitaxy surface.",
+      "implemented": true
+    },
+    {
+      "id": "C-face-000-1",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "(000-1) carbon face. Select by inverting the stacking origin.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "sqrt3xsqrt3-R30",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "(sqrt3 x sqrt3)R30 Si-adatom reconstruction of 4H-SiC(0001).",
+      "implemented": false,
+      "reference": "U. Starke et al., Phys. Rev. Lett. 80 (1998) 758",
+      "note": "Not implemented in v0.1."
+    },
+    {
+      "id": "6sqrt3-buffer",
+      "orientation": [
+        0,
+        0,
+        1
+      ],
+      "description": "(6sqrt3 x 6sqrt3)R30 carbon buffer layer formed on graphitisation.",
+      "implemented": false,
+      "reference": "K. V. Emtsev et al., Phys. Rev. B 77 (2008) 155303",
+      "note": "Not implemented in v0.1; the cell would contain several thousand atoms."
+    }
+  ],
+  "properties": {
+    "density": {
+      "value": 3.211,
+      "unit": "g/cm^3",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "band_gap": {
+      "value": 3.23,
+      "unit": "eV",
+      "conditions": "300 K, indirect",
+      "source": "W. J. Choyke and G. Pensl, MRS Bull. 22 (1997) 25"
+    },
+    "band_gap_type": {
+      "value": "indirect",
+      "unit": "",
+      "source": "classification following the band-gap reference cited for this material"
+    },
+    "dielectric_constant": {
+      "value": 9.76,
+      "unit": "",
+      "conditions": "static, parallel to c",
+      "source": "L. Patrick and W. J. Choyke, Phys. Rev. B 2 (1970) 2255"
+    },
+    "melting_point": {
+      "value": 3103,
+      "unit": "K",
+      "conditions": "sublimes",
+      "source": "CRC Handbook"
+    },
+    "thermal_conductivity": {
+      "value": 370,
+      "unit": "W/(m K)",
+      "conditions": "300 K, along c",
+      "source": "CRC Handbook"
+    },
+    "breakdown_field": {
+      "value": 250000000.0,
+      "unit": "V/m",
+      "source": "W. J. Choyke and G. Pensl, MRS Bull. 22 (1997) 25"
+    },
+    "nearest_neighbour_distance": {
+      "value": 1.89,
+      "unit": "A",
+      "conditions": "Si-C bond",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    }
+  },
+  "recommended_models": {
+    "relax": "lennard-jones-generic",
+    "electronic": "unsupported",
+    "stm": "tersoff-hamann",
+    "high-fidelity": "external:quantum-espresso",
+    "dynamics": "lennard-jones-generic"
+  },
+  "references": [
+    "A. Bauer, J. Kraeusslich, L. Dressler et al., Acta Cryst. B 57 (2001) 60",
+    "W. J. Choyke and G. Pensl, MRS Bulletin 22 (1997) 25"
+  ],
+  "license": "CC0-1.0",
+  "provenance_note": "Compiled by the Materia project from the cited primary sources. Stacking ABAC (Ramsdell ABCB): Si on 2a (0, 0, 0) and 2b (1/3, 2/3, 1/4) of P6_3mc, the 2a layers being the quasi-cubic (k) sites and the 2b layers the hexagonal (h) sites, with C above each Si at z + u. The internal parameter u is taken at the ideal value 3/16; measured deviations are below 0.5 %. No published Stillinger-Weber parameterisation for SiC is bundled in v0.1. The generic Lennard-Jones model is offered for interactive geometry only and is qualitative for a covalent polar crystal; use an external solver for energetics."
+}

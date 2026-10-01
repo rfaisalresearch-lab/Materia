@@ -1,0 +1,345 @@
+{
+  "File": [
+    {
+      "label": "New project",
+      "key": "Ctrl N",
+      "action": "project.new"
+    },
+    {
+      "label": "Open project\u2026",
+      "key": "Ctrl O",
+      "action": "project.open"
+    },
+    {
+      "label": "Save project as\u2026",
+      "key": "Ctrl S",
+      "action": "project.save"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Import structure\u2026",
+      "action": "import.structure",
+      "title": "XYZ, extended XYZ, CIF, POSCAR, PDB or LAMMPS data"
+    },
+    {
+      "label": "Export structure\u2026",
+      "action": "export.structure"
+    },
+    {
+      "label": "Export scan image\u2026",
+      "action": "export.image"
+    },
+    {
+      "label": "Export atom table (CSV)\u2026",
+      "action": "export.csv"
+    },
+    {
+      "label": "Export scan data (CSV)\u2026",
+      "action": "export.csvscan"
+    },
+    {
+      "label": "Export arrays (NumPy .npz)\u2026",
+      "action": "export.npz",
+      "title": "Structure, stored arrays, numeric results and scan channels in one verified archive"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Save checkpoint\u2026",
+      "action": "project.checkpoint"
+    },
+    {
+      "label": "Show provenance report",
+      "action": "project.provenance"
+    }
+  ],
+  "Structure": [
+    {
+      "label": "Undo",
+      "key": "Ctrl Z",
+      "action": "edit.undo"
+    },
+    {
+      "label": "Redo",
+      "key": "Ctrl Shift Z",
+      "action": "edit.redo"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Select all",
+      "key": "Ctrl A",
+      "action": "select.all"
+    },
+    {
+      "label": "Select none",
+      "key": "Esc",
+      "action": "select.none"
+    },
+    {
+      "label": "Invert selection",
+      "action": "select.invert"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Substitute element\u2026",
+      "action": "edit.substitute"
+    },
+    {
+      "label": "Create vacancy",
+      "action": "edit.vacancy"
+    },
+    {
+      "label": "Add adatom\u2026",
+      "action": "edit.adatom"
+    },
+    {
+      "label": "Add interstitial\u2026",
+      "action": "edit.interstitial"
+    },
+    {
+      "label": "Set charge\u2026",
+      "action": "edit.charge"
+    },
+    {
+      "label": "Set spin\u2026",
+      "action": "edit.spin"
+    },
+    {
+      "label": "Apply strain\u2026",
+      "action": "edit.strain"
+    },
+    {
+      "label": "Passivate surface with H",
+      "action": "edit.passivate"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Reconstruct surface\u2026",
+      "action": "structure.reconstruct",
+      "title": "Apply a reconstruction declared by the material to the upper face"
+    },
+    {
+      "label": "Reconstruction report",
+      "action": "structure.reconstruction",
+      "title": "Measured reconstruction geometry against published structural data"
+    }
+  ],
+  "Build": [
+    {
+      "label": "Wafer\u2026",
+      "action": "build.wafer"
+    },
+    {
+      "label": "Extract atomistic region\u2026",
+      "action": "build.region"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Surface from material\u2026",
+      "action": "build.surface"
+    },
+    {
+      "label": "Material browser",
+      "action": "panel.materials"
+    }
+  ],
+  "Instrument": [
+    {
+      "label": "Acquire scan",
+      "key": "F5",
+      "action": "scan.run"
+    },
+    {
+      "label": "Abort scan",
+      "action": "scan.abort"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Detect features",
+      "action": "scan.features"
+    },
+    {
+      "label": "Point spectroscopy (dI/dV)",
+      "action": "scan.sts"
+    },
+    {
+      "label": "Force curve",
+      "action": "scan.force"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Instrument panel",
+      "action": "panel.instrument"
+    }
+  ],
+  "Solve": [
+    {
+      "label": "Energy",
+      "action": "solve.energy"
+    },
+    {
+      "label": "Relax geometry",
+      "key": "F6",
+      "action": "solve.relax"
+    },
+    {
+      "label": "Molecular dynamics",
+      "action": "solve.md"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Electronic structure",
+      "key": "F7",
+      "action": "solve.electronic"
+    },
+    {
+      "label": "Band structure",
+      "action": "solve.band_structure"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Solver panel",
+      "action": "panel.solver"
+    }
+  ],
+  "Display": [
+    {
+      "label": "Wafer",
+      "key": "1",
+      "action": "view.wafer"
+    },
+    {
+      "label": "Microstructure",
+      "key": "2",
+      "action": "view.region"
+    },
+    {
+      "label": "Atomic model",
+      "key": "3",
+      "action": "view.atoms"
+    },
+    {
+      "label": "Probe image",
+      "key": "4",
+      "action": "view.probe"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Frame structure",
+      "key": "R",
+      "action": "view.frame"
+    },
+    {
+      "label": "Toggle bonds",
+      "key": "B",
+      "action": "view.bonds"
+    },
+    {
+      "label": "Toggle cell",
+      "key": "C",
+      "action": "view.cell"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Light theme",
+      "action": "theme.light"
+    },
+    {
+      "label": "Dark theme",
+      "action": "theme.dark"
+    },
+    {
+      "label": "High contrast",
+      "action": "theme.contrast"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Compact density",
+      "action": "density.compact"
+    },
+    {
+      "label": "Normal density",
+      "action": "density.normal"
+    },
+    {
+      "label": "Comfortable density",
+      "action": "density.comfortable"
+    }
+  ],
+  "Tools": [
+    {
+      "label": "Python console",
+      "action": "panel.console"
+    },
+    {
+      "label": "Job log",
+      "action": "panel.log"
+    },
+    {
+      "label": "Warnings",
+      "action": "panel.warnings"
+    },
+    {
+      "label": "History",
+      "action": "panel.history"
+    },
+    {
+      "sep": true
+    },
+    {
+      "label": "Periodic table",
+      "action": "tools.periodic"
+    },
+    {
+      "label": "Script environment",
+      "action": "tools.environment"
+    }
+  ],
+  "Help": [
+    {
+      "label": "Keyboard shortcuts",
+      "action": "help.keys"
+    },
+    {
+      "label": "Fidelity tiers",
+      "action": "help.tiers"
+    },
+    {
+      "label": "What this program does not do",
+      "action": "help.limits"
+    },
+    {
+      "label": "Run interface self-check",
+      "action": "help.selfcheck"
+    },
+    {
+      "label": "About Materia",
+      "action": "help.about"
+    }
+  ]
+}

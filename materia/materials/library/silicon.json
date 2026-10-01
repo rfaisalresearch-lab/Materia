@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0",
+  "id": "silicon",
+  "name": "Silicon",
+  "formula": "Si",
+  "aliases": [
+    "Si",
+    "c-Si",
+    "single-crystal silicon"
+  ],
+  "category": "elemental semiconductor",
+  "structure": {
+    "prototype": "diamond-cubic",
+    "space_group": {
+      "number": 227,
+      "symbol": "Fd-3m"
+    },
+    "lattice": {
+      "a": 5.4310205,
+      "unit": "A",
+      "system": "cubic",
+      "temperature_K": 295.7,
+      "source": "CODATA-recommended silicon lattice parameter a(Si, 295.7 K) = 5.431020511(89) A"
+    },
+    "basis": [
+      {
+        "element": "Si",
+        "fractional": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "label": "Si(a)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.25,
+          0.25,
+          0.25
+        ],
+        "label": "Si(b)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.0,
+          0.5,
+          0.5
+        ],
+        "label": "Si(a)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.25,
+          0.75,
+          0.75
+        ],
+        "label": "Si(b)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.5,
+          0.0,
+          0.5
+        ],
+        "label": "Si(a)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.75,
+          0.25,
+          0.75
+        ],
+        "label": "Si(b)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "label": "Si(a)",
+        "wyckoff": "8a"
+      },
+      {
+        "element": "Si",
+        "fractional": [
+          0.75,
+          0.75,
+          0.25
+        ],
+        "label": "Si(b)",
+        "wyckoff": "8a"
+      }
+    ]
+  },
+  "orientations": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      1
+    ]
+  ],
+  "terminations": [
+    {
+      "id": "ideal-bulk",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "Ideal bulk truncation, one dangling bond per surface atom.",
+      "implemented": true
+    },
+    {
+      "id": "ideal-bulk-100",
+      "orientation": [
+        1,
+        0,
+        0
+      ],
+      "description": "Ideal bulk truncation, two dangling bonds per surface atom.",
+      "implemented": true
+    },
+    {
+      "id": "H-terminated-111",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "passivation": "H",
+      "description": "Monohydride Si(111):H-1x1, the wet-chemically prepared ideally flat surface.",
+      "implemented": true
+    }
+  ],
+  "reconstructions": [
+    {
+      "id": "7x7-DAS",
+      "orientation": [
+        1,
+        1,
+        1
+      ],
+      "description": "Takayanagi dimer-adatom-stacking-fault reconstruction of clean Si(111).",
+      "implemented": false,
+      "reference": "K. Takayanagi et al., Surf. Sci. 164 (1985) 367",
+      "note": "Not implemented. Requesting it returns an explicit unsupported record rather than an approximate structure; the surface is built as the unreconstructed (111) truncation and labelled as such."
+    },
+    {
+      "id": "2x1-dimer",
+      "orientation": [
+        1,
+        0,
+        0
+      ],
+      "description": "Rows of surface dimers on Si(100): neighbouring surface atoms pair along their dangling-bond direction, halving the periodicity in that direction.",
+      "implemented": true,
+      "reference": "R. E. Schlier and H. E. Farnsworth, J. Chem. Phys. 30 (1959) 917",
+      "note": "The relaxed geometry is whatever the recommended classical potential predicts. Stillinger-Weber has no mechanism for the charge transfer that buckles the real dimer, so it returns a symmetric dimer: the buckling and the low-temperature c(4x2) and p(2x2) orderings are not reproduced and are reported as unsupported by this tier.",
+      "method": "Generator establishes the dimer pairing from the slab's own back-bond geometry and then relaxes with the material's recommended interatomic model. No bond length is prescribed.",
+      "reference_geometry": {
+        "bond_length_A": {
+          "value": 2.24,
+          "uncertainty": 0.08,
+          "unit": "A",
+          "method": "LEED structure analysis, clean Si(001)-(2x1), room temperature",
+          "source": "H. Over, J. Wasserfall, W. Ranke, C. Ambiatello, R. Sawitzki, D. Wolf and W. Moritz, Phys. Rev. B 55 (1997) 4731",
+          "note": "Measured for the buckled dimer."
+        },
+        "buckling_A": {
+          "value": 0.72,
+          "uncertainty": 0.05,
+          "unit": "A",
+          "method": "LEED structure analysis, vertical separation of the up and down dimer atom",
+          "source": "H. Over, J. Wasserfall, W. Ranke, C. Ambiatello, R. Sawitzki, D. Wolf and W. Moritz, Phys. Rev. B 55 (1997) 4731",
+          "note": "Zero by construction in any model without dimer charge transfer."
+        },
+        "tilt_deg": {
+          "value": 19.0,
+          "uncertainty": 2.0,
+          "unit": "deg",
+          "method": "LEED structure analysis, dimer tilt out of the surface plane",
+          "source": "H. Over, J. Wasserfall, W. Ranke, C. Ambiatello, R. Sawitzki, D. Wolf and W. Moritz, Phys. Rev. B 55 (1997) 4731"
+        }
+      }
+    }
+  ],
+  "properties": {
+    "density": {
+      "value": 2.329,
+      "unit": "g/cm^3",
+      "conditions": "298 K",
+      "source": "CRC Handbook, 104th ed."
+    },
+    "band_gap": {
+      "value": 1.12,
+      "unit": "eV",
+      "conditions": "300 K, indirect (Gamma -> ~0.85 X)",
+      "source": "S. M. Sze, Physics of Semiconductor Devices, 3rd ed.",
+      "note": "1.17 eV at 0 K (Varshni)."
+    },
+    "band_gap_type": {
+      "value": "indirect",
+      "unit": "",
+      "source": "classification following the band-gap reference cited for this material"
+    },
+    "dielectric_constant": {
+      "value": 11.7,
+      "unit": "",
+      "conditions": "static, 300 K",
+      "source": "S. M. Sze"
+    },
+    "electron_affinity": {
+      "value": 4.05,
+      "unit": "eV",
+      "source": "S. M. Sze"
+    },
+    "work_function": {
+      "value": 4.85,
+      "unit": "eV",
+      "conditions": "n-type, (100)",
+      "source": "CRC Handbook"
+    },
+    "melting_point": {
+      "value": 1687,
+      "unit": "K",
+      "source": "CRC Handbook"
+    },
+    "thermal_conductivity": {
+      "value": 149,
+      "unit": "W/(m K)",
+      "conditions": "300 K",
+      "source": "CRC Handbook"
+    },
+    "thermal_expansion": {
+      "value": 2.6e-06,
+      "unit": "1/K",
+      "conditions": "300 K",
+      "source": "Y. Okada and Y. Tokumaru, J. Appl. Phys. 56 (1984) 314"
+    },
+    "elastic_C11": {
+      "value": 165.7,
+      "unit": "GPa",
+      "conditions": "298 K",
+      "source": "J. J. Hall, Phys. Rev. 161 (1967) 756"
+    },
+    "elastic_C12": {
+      "value": 63.9,
+      "unit": "GPa",
+      "conditions": "298 K",
+      "source": "J. J. Hall, Phys. Rev. 161 (1967) 756"
+    },
+    "elastic_C44": {
+      "value": 79.6,
+      "unit": "GPa",
+      "conditions": "298 K",
+      "source": "J. J. Hall, Phys. Rev. 161 (1967) 756"
+    },
+    "bulk_modulus": {
+      "value": 97.8,
+      "unit": "GPa",
+      "conditions": "derived (C11+2C12)/3",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    },
+    "cohesive_energy": {
+      "value": 4.63,
+      "unit": "eV/atom",
+      "source": "C. Kittel, Introduction to Solid State Physics, 8th ed."
+    },
+    "nearest_neighbour_distance": {
+      "value": 2.3517,
+      "unit": "A",
+      "conditions": "derived a*sqrt(3)/4",
+      "origin": "calculated",
+      "source": "derived from the lattice parameters in this file"
+    }
+  },
+  "recommended_models": {
+    "relax": "stillinger-weber",
+    "dynamics": "stillinger-weber",
+    "electronic": "tight-binding-sp3s",
+    "stm": "tersoff-hamann",
+    "high-fidelity": "external:gpaw"
+  },
+  "references": [
+    "F. H. Stillinger and T. A. Weber, Phys. Rev. B 31 (1985) 5262",
+    "P. Vogl, H. P. Hjalmarson and J. D. Dow, J. Phys. Chem. Solids 44 (1983) 365",
+    "J. Tersoff and D. R. Hamann, Phys. Rev. B 31 (1985) 805",
+    "H. Over, J. Wasserfall, W. Ranke, C. Ambiatello, R. Sawitzki, D. Wolf and W. Moritz, Phys. Rev. B 55 (1997) 4731",
+    "R. E. Schlier and H. E. Farnsworth, J. Chem. Phys. 30 (1959) 917"
+  ],
+  "license": "CC0-1.0 for this file. The numeric constants are measured physical facts cited to their primary literature; the file itself is contributed to the public domain.",
+  "provenance_note": "Compiled by the Materia project from the cited primary sources. No proprietary dataset is included."
+}
