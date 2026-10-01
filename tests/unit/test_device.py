@@ -9,7 +9,10 @@ import pytest
 
 from materia.physics import device as D
 
-pytest.importorskip("devsim", reason="BLOCKED: devsim is not installed")
+try:
+    D._devsim()
+except D.DeviceError as exc:
+    pytest.skip(f"BLOCKED: {exc}", allow_module_level=True)
 
 
 @pytest.fixture(scope="module")

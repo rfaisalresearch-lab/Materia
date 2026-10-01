@@ -34,9 +34,10 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 EXCLUDED = ("Materia.app/",)
-WINDOWS_ENGINES = ["rdkit", "openmm", "pdbfixer", "devsim", "xraydb", "phonopy",
+WINDOWS_ENGINES = ["rdkit", "openmm", "pdbfixer", "mkl", "devsim", "xraydb", "phonopy",
                    "radioactivedecay", "particle"]
-MACOS_ENGINES = WINDOWS_ENGINES + ["pyscf", "pyscf-properties", "tblite", "matscipy"]
+MACOS_ENGINES = [e for e in WINDOWS_ENGINES if e != "mkl"] + ["pyscf", "pyscf-properties", "tblite",
+                                                            "matscipy"]
 
 INSTALL_PS1 = r"""$ErrorActionPreference = 'Stop'
 $Version = '__VERSION__'

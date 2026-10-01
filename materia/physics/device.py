@@ -63,6 +63,10 @@ def _devsim():
         models = importlib.import_module("devsim.python_packages.model_create")
     except ImportError:
         raise DeviceError("DEVSIM is not installed: pip install devsim") from None
+    except RuntimeError as exc:
+        raise DeviceError(f"DEVSIM is installed but could not start ({exc}). It needs a "
+                          "BLAS and LAPACK library; on Windows and Linux install one with "
+                          "pip install mkl.") from None
     return devsim, physics, models
 
 

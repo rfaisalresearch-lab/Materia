@@ -23,7 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e ".[adapters,bigdata,dev,xray,device,validation]"
-          python -m pip install rdkit openmm pdbfixer radioactivedecay particle
+          python -m pip install rdkit openmm pdbfixer radioactivedecay particle mkl
       - name: Unit and integration tests
         run: python -m pytest -q -m "not validation and not performance and not slow" tests/unit tests/integration
 
@@ -35,7 +35,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Build the release packages
-        run: python tools/make_release.py --output dist
+        run: |
+          python -m pip install numpy scipy
+          python tools/make_release.py --output dist
       - name: Run the Windows installer
         shell: pwsh
         run: |
