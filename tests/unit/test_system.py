@@ -35,6 +35,7 @@ def test_windows_conda_layout(tmp_path, monkeypatch):
     assert S.new_group_kwargs() == {"creationflags": 0x200}
 
 
+@pytest.mark.skipif(S.WINDOWS, reason="POSIX execute permissions")
 def test_posix_conda_layout(tmp_path, monkeypatch):
     monkeypatch.setattr(S, "WINDOWS", False)
     monkeypatch.setattr(S.Path, "home", classmethod(lambda cls: tmp_path))

@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.png binary
+*.icns binary
+*.ico binary
+*.materia binary
+*.npz binary
+*.h5 binary
+*.eam.alloy -text
+materia/elements/nuclear_data/*.txt -text
+*.UPF -text

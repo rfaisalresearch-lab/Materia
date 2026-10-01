@@ -39,6 +39,7 @@ def test_centrosymmetry_is_zero_in_perfect_fcc():
 
 
 def test_edge_dislocation_dissociates_on_its_glide_plane(copper):
+    pytest.importorskip("matscipy.dislocation", reason="BLOCKED: matscipy is not installed")
     result = X.dislocation(copper, "fcc-edge", "Cu", A_CU, 170.9, 121.95, 76.49, radius_A=70.0,
                            fmax_eV_A=5e-3, max_steps=6000)
     assert result.extra["relaxation_converged"]

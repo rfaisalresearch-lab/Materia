@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
+import os
 import plistlib
 import subprocess
 import sys
 from pathlib import Path
 
+import pytest
 
+
+@pytest.mark.skipif(os.name == "nt", reason="the macOS launcher is a POSIX shell script")
 def test_macos_launcher_builds_and_self_checks(tmp_path):
     root = Path(__file__).resolve().parents[2]
     subprocess.run(

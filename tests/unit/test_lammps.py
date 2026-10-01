@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 
 import numpy as np
 import pytest
@@ -136,9 +137,13 @@ class TestEnvironment:
 
     def test_explicit_choice_that_fails_is_not_replaced(self, tmp_path, monkeypatch,
                                                         fake_lammps):
-        bogus = tmp_path / "not-lammps"
-        bogus.write_text("#!/bin/sh\necho hello\n")
-        bogus.chmod(0o755)
+        if os.name == "nt":
+            bogus = tmp_path / "not-lammps.cmd"
+            bogus.write_text("@echo hello\r\n")
+        else:
+            bogus = tmp_path / "not-lammps"
+            bogus.write_text("#!/bin/sh\necho hello\n")
+            bogus.chmod(0o755)
         monkeypatch.setenv("PATH", str(fake_lammps.parent))
         monkeypatch.setenv(env_module.EXECUTABLE_ENV_VAR, str(bogus))
         found = env_module.discover(refresh=True)

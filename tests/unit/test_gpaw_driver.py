@@ -465,7 +465,11 @@ class TestChargedAndSpinPolarisedAreRefused:
         def explode(*args, **kwargs):
             raise AssertionError("a GPAW subprocess was started for a refused request")
 
+        from materia.solvers.base import SupportReport
+
         monkeypatch.setattr(runner, "run", explode)
+        monkeypatch.setattr(GPAWSolver, "supports",
+                            lambda self, structure: SupportReport(True, [], []))
         for settings in ({"mode": "fd", "charge": 1.0},
                          {"mode": "fd", "spin_polarized": True}):
             with pytest.raises(GPAWSettingsError):

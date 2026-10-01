@@ -89,6 +89,10 @@ FAKE_LAMMPS = ROOT / "tests" / "support" / "fake_lammps.py"
 
 def _write_launcher(directory: Path, name: str) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
+    if os.name == "nt":
+        launcher = directory / f"{name}.cmd"
+        launcher.write_text(f'@"{sys.executable}" "{FAKE_LAMMPS}" %*\r\n')
+        return launcher
     launcher = directory / name
     launcher.write_text(f'#!/bin/sh\nexec "{sys.executable}" "{FAKE_LAMMPS}" "$@"\n')
     launcher.chmod(0o755)
